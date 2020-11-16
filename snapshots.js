@@ -18,5 +18,14 @@ PercyScript.run(async (page, percySnapshot) => {
   await page.type('.new-todo', 'A really important todo');
   await page.keyboard.press('Enter');
   await percySnapshot('TodoMVC with a new todo', { widths: [768, 992, 1200] });
+
+  //Strike off a created todo
+  await page.click('.toggle')
+  await percySnapshot('TodoMvc check box strike off',{ widths: [768,992,1200]})
+
+  //CLear completed
+  await page.click('.clear-completed')
+  await percySnapshot('CLear completed',{ widths: [768,992,1200]})
   server.close();
 });
+
